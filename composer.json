@@ -1,46 +1,72 @@
 {
-  "name": "paksuco/users-ui",
-  "description": "A simple users list, edit, create, permissions, avatar, extra information etc. user interface",
-  "keywords": ["users", "user", "ui", "laravel", "package", "interface", "permissions", "roles"],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Taha PAKSU",
-      "email": "tpaksu@gmail.com",
-      "homepage": "https://rettica.com"
-    }
-  ],
-  "require": {
-    "php": ">=7.0.0",
-    "illuminate/support": "^7.0",
-    "illuminate/config": "^7.0",
-    "illuminate/routing": "^7.0",
-    "spatie/laravel-permission": "^3.13",
-    "livewire/livewire": "^1.2"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^6.3"
-  },
-  "autoload": {
-    "psr-4": {
-      "Paksuco\\UsersUI\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Paksuco\\UsersUI\\Tests\\": "tests/"
-    }
-  },
-  "extra": {
-    "laravel": {
-        "providers": [
-            "Paksuco\\UsersUI\\ServiceProvider"
-        ],
-        "aliases": {
-            "Package": "Paksuco\\UsersUI\\Facade"
+    "name": "paksuco/users-ui",
+    "description": "A simple users list, edit, create, permissions, avatar, extra information etc. user interface",
+    "keywords": [
+        "users",
+        "user",
+        "ui",
+        "laravel",
+        "package",
+        "interface",
+        "permissions",
+        "roles"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Taha PAKSU",
+            "email": "tpaksu@gmail.com",
+            "homepage": "https://rettica.com"
         }
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "illuminate/support": "^7.0",
+        "illuminate/config": "^7.0",
+        "illuminate/routing": "^7.0",
+        "livewire/livewire": "^1.2",
+        "paksuco/modal": "@dev",
+        "paksuco/table": "@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Paksuco\\UsersUI\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Paksuco\\UsersUI\\Tests\\": "tests/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../modal",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "../table",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Paksuco\\UsersUI\\UsersUIServiceProvider"
+            ],
+            "aliases": {
+                "Package": "Paksuco\\UsersUI\\Facade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
