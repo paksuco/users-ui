@@ -11,9 +11,7 @@
         </div>
     </div>
 
-    <div class="p-4 bg-gray-100">
-        @livewire('paksuco-table::table', $config)
-    </div>
+    @livewire('paksuco-table::table', $config)
 
     @livewire('paksuco-modal::modal')
 </div>
