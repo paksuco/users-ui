@@ -12,30 +12,7 @@
     </div>
 
     <div class="p-4 bg-gray-100">
-        @livewire('paksuco-table::table', [
-        "model" => \App\User::class,
-        "queryable" => true,
-        "sortable" => true,
-        "pageable" => true,
-        "perPage" => 50,
-        "actions" => function($row) {
-            return "<button>{$row->name}</button>";
-        },
-        "fields" => [
-            [
-                "type" => "field",
-                "name" => "name",
-                "value" => "string",
-                "sortable" => true,
-                "queryable" => true,
-                "filterable" => false
-            ],
-            [
-                "name" => "actions",
-                "type" => "actions"
-            ]
-        ]
-        ])
+        @livewire('paksuco-table::table', $config)
     </div>
 
     @livewire('paksuco-modal::modal')
