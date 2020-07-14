@@ -71,7 +71,8 @@ class UsersUIServiceProvider extends ServiceProvider
         $this->publishes([__DIR__ . '/../views' => base_path('resources/views/vendor/users-ui')]);
 
         Livewire::component("users-ui::users-view", \Paksuco\UsersUI\Components\UsersView::class);
-        Livewire::component("users-ui::new-user", \Paksuco\UsersUI\Components\NewUser::class);
+        Livewire::component("users-ui::users-form", \Paksuco\UsersUI\Components\UsersForm::class);
+        Livewire::component("users-ui::users-delete", \Paksuco\UsersUI\Components\UsersDelete::class);
     }
 
     private function handleMigrations()

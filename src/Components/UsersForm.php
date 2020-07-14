@@ -4,17 +4,23 @@ namespace Paksuco\UsersUI\Components;
 
 use Livewire\Component;
 
-class NewUser extends Component
+class UsersForm extends Component
 {
     public $args;
+
+    public $user;
 
     public function mount($args = [])
     {
         $this->args = $args;
+        if($args["id"])
+        {
+            $this->user = \App\User::find($args["id"]);
+        }
     }
 
     public function render()
     {
-        return view("users-ui::components.new-user");
+        return view("users-ui::components.users-form");
     }
 }
