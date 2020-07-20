@@ -1,4 +1,4 @@
-<form class="p-4" style="min-width: 480px">
+<form class="p-4">
     @if($user)
     <input type="hidden" name="id" value="{{$user->id}}">
     @endif
