@@ -1,4 +1,4 @@
-<div class="container mx-auto">
+<div class="container p-4">
     <div class="flex flex-col px-4 sm:px-0 sm:flex-row sm:pb-4">
         <div class="sm:w-1/2 items-end flex">
             <h2 class="text-2xl font-semibold">@lang("User Management")</h2>
