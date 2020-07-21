@@ -90,7 +90,7 @@ class UsersUIServiceProvider extends ServiceProvider
         Event::listen("paksuco.menu.beforeRender", function ($key, $container) {
             if ($key == "admin") {
                 if ($container->hasItem("Users") === false) {
-                    $container->addItem("Users", route("paksuco.users"), "fa fa-users text-center w-4 text-gray-400");
+                    $container->addItem("Users", route("paksuco.users"), "fa fa-users");
                 }
             }
         });
