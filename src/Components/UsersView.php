@@ -26,10 +26,4 @@ class UsersView extends Component
     {
         $this->emit('showModal', 'Delete User', 'users-ui::users-delete', ["id" => $id]);
     }
-
-    public static function actions($row)
-    {
-        return "<button class='mr-1 rounded px-3 py-1 bg-blue-700 text-white shadow' wire:click='\$emit(\"editUser\"," . $row->id . ")'>" . __("Edit") . "</button>" .
-        "<button class='rounded px-3 py-1 bg-red-700 text-white shadow' wire:click='\$emit(\"deleteUser\"," . $row->id . ")'>" . __("Delete") . "</button>";
-    }
 }
