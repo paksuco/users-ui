@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    @livewire('paksuco-table::table', $config)
+    @livewire('paksuco-table::table', ['class' => new \Paksuco\UsersUI\Tables\UserTable()])
 
     @livewire('paksuco-modal::modal')
 </div>
