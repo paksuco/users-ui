@@ -89,8 +89,16 @@ class UsersUIServiceProvider extends ServiceProvider
     {
         Event::listen("paksuco.menu.beforeRender", function ($key, $container) {
             if ($key == "admin") {
-                if ($container->hasItem("Users") === false) {
-                    $container->addItem("Users", route("paksuco.users"), "fa fa-users");
+                if ($container->hasItem("User Management") === false) {
+                    $container->addItem("User Management", "#", "fa fa-users", function ($menu) {
+                        $menu->addItem("Users", route("paksuco.users"), "fa fa-users")
+                            ->addItem("Points", "#", "fa fa-certificate")
+                            ->addItem("Events", "#", "fa fa-bolt")
+                            ->addItem("Settings", "#", "fa fa-cogs", function ($menu2) {
+                                $menu2->addItem("Point Definitions", "#", "far fa-edit")
+                                    ->addItem("Event Definitions", "#", "fa fa-calendar-plus");
+                            });
+                    });
                 }
             }
         });

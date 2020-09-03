@@ -28,11 +28,9 @@ class UserPoints extends Migration
             $table->bigIncrements('id');
             $table->foreignId('user_id');
             $table->foreignId('point_id');
-            $table->string('description');
             $table->string('point_source_model')->nullable();
             $table->foreignId('point_source_id')->nullable();
             $table->integer('point_effect');
-            $table->integer('points_after');
             $table->timestamps();
             $table->softDeletes();
 

@@ -24,11 +24,26 @@ trait CanBeBanned
         $banStatus->save();
     }
 
+    public function removeBan()
+    {
+        $bans = $this->effectiveBans();
+        foreach ($bans as $ban) {
+            $ban->deleted_by = Auth::id();
+            $ban->delete();
+        }
+    }
+
+    public function effectiveBans()
+    {
+        return $this->banHistory()
+            ->where("ban_start", "<=", Carbon::now())
+            ->where("ban_end", ">=", Carbon::now())
+            ->get();
+    }
+
     public function isBanned()
     {
-        return $this->whereHas('banHistory', function (Builder $q) {
-            $q->inEffect();
-        })->count() > 0;
+        return $this->effectiveBans()->count() > 0;
     }
 
     public function scopeOnlyBanned(Builder $query)
